@@ -1,11 +1,8 @@
 from flask import Flask
-from routes.home import home_route
-from routes.cliente import cliente_route
+from configurações import configure_all
 
-# Inicialização
 app = Flask(__name__)
 
-app.register_blueprint(home_route)
-app.register_blueprint(cliente_route, url_prefix='/cliente')
+configure_all(app)
 
 app.run(debug=True)
